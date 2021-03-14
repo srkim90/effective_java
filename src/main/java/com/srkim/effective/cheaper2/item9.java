@@ -15,11 +15,12 @@ public class item9 {
     */
     @RequestMapping(method = RequestMethod.GET, value="/item9")
     public String print_result(Model model) throws InterruptedException {
-        try(tryWithResources e = new tryWithResources()) {
+        try(tryWithResources res = new tryWithResources()) {
             System.out.println("1");
-            e.raiseException();
+            res.raiseException();
         } catch (Exception e) {
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Exception!");
         }
         System.out.println("2");
         return "";
@@ -30,11 +31,12 @@ public class item9 {
 
 class tryWithResources implements AutoCloseable{
     @Override
-    public void close() throws Exception {
+    public void close(){
         System.out.println("tryWithResources::close call"); // try 블럭이 끝나는시점에 자동호출, finally로 지저분하게 안받아도 된다!
     }
 
     void raiseException() throws Exception {
+        System.out.println("throw new Exception");
         throw new Exception();
     }
 }
