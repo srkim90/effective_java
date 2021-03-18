@@ -12,8 +12,8 @@ import java.util.Map;
 @RequestMapping("/cheaper3/*")
 public class item11 {
     /*
-      item10 : equals를 재정의한 클래스 모두에서 hasCode도 재정의해야한다.
-         * equals true 일 경우, hash값도 같아야 한다는 말이다.
+       item10 : equals를 재정의한 클래스 모두에서 hashCode도 재정의해야한다.
+          * equals true 일 경우, hash값도 같아야 한다는 말이다.
     */
     @RequestMapping(method = RequestMethod.GET, value="/item11")
     public String print_result(Model model) throws InterruptedException {
